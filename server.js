@@ -77,8 +77,8 @@ var config         = require('./config');
 
 var rootFolder = process.env.SALLYROOT || '/public';
 
-
-app.set('port', (config.server.port));
+var port = process.env.PORT || 3000;
+app.set('port', port);
 
 app.use(cors());
 app.use(logger('dev'));
