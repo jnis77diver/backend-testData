@@ -2,7 +2,7 @@
  * Module dependencies.
  */
 
-var express        = require('express'),
+/*var express        = require('express'),
     path           = require('path'),
     logger         = require('morgan'),
     bodyParser     = require('body-parser'),
@@ -20,9 +20,9 @@ var app = express();
 
 
 
-/**
+/!**
  * Express configuration.
- */
+ *!/
 app.set('port', config.server.port);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -56,11 +56,15 @@ if (app.get('env') === 'development') {
 
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'));
-});
+});*/
 
 //////////////
 
-/*
+
+
+
+
+
 var express = require('express');
 var app = express();
 
@@ -68,11 +72,13 @@ var bodyParser = require('body-parser');
 var cors = require('cors');
 var logger = require('morgan');
 var request = require('request');
+var config         = require('./config');
 
-var rootFolder = process.env.SALLYROOT || '/dist';
+
+var rootFolder = process.env.SALLYROOT || '/public';
 
 
-app.set('port', (process.env.PORT || 5000));
+app.set('port', (config.server.port));
 
 app.use(cors());
 app.use(logger('dev'));
@@ -81,13 +87,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(express.static(__dirname + rootFolder));
 
-require('./server/routes')(app);
+require('./routes/index')(app);
 
-require('./server/controllers/checkr/checkr');
-
-var server = app.listen(app.get('port'), function () {
+app.listen(app.get('port'), function () {
   console.log('Node app is running on port', app.get('port'));
 });
-*/
 
 module.exports = app;
