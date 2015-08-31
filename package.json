@@ -1,8 +1,12 @@
 {
   "name": "ob-mockbackend",
   "version": "0.0.0",
+  "engine": { "node": "~0.12.x" },
+  "scripts": {
+    "start": "node app.js"
+  },
   "dependencies": {
-    "express": "~4.0.0-rc2",
+    "express": "^4.13.1",
     "morgan": "~1.0.0",
     "body-parser": "~1.0.0",
     "compression": "1.0.1",
